@@ -1,0 +1,365 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_axiomV2QueryAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint64",
+						"name": "_callbackSourceChainId",
+						"type": "uint64"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_querySchema",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_reward",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "AxiomV2QueryAddressIsZero",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "CallerMustBeAxiomV2Query",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint64",
+						"name": "sourceChainId",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "querySchema",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "queryId",
+						"type": "uint256"
+					}
+				],
+				"name": "AxiomV2Call",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint64",
+						"name": "sourceChainId",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "querySchema",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "queryId",
+						"type": "uint256"
+					}
+				],
+				"name": "AxiomV2OffchainCall",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "blockNumber",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "TransferedAmountEvent",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "sourceChainId",
+						"type": "uint64"
+					},
+					{
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "querySchema",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "queryId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "axiomResults",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "extraData",
+						"type": "bytes"
+					}
+				],
+				"name": "axiomV2Callback",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "sourceChainId",
+						"type": "uint64"
+					},
+					{
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "querySchema",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "queryId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "axiomResults",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "extraData",
+						"type": "bytes"
+					}
+				],
+				"name": "axiomV2OffchainCallback",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "axiomV2QueryAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"errors": {
+				"AxiomV2QueryAddressIsZero()": [
+					{
+						"details": "Error returned if initialized with `axiomV2QueryAddress` set to the zero address."
+					}
+				],
+				"CallerMustBeAxiomV2Query()": [
+					{
+						"details": "Error returned if the caller is not the AxiomV2Query contract."
+					}
+				]
+			},
+			"events": {
+				"AxiomV2Call(uint64,address,bytes32,uint256)": {
+					"params": {
+						"caller": "The address of the account that initiated the query.",
+						"queryId": "The unique ID identifying the query.",
+						"querySchema": "The schema of the query, defined as `keccak(k . resultLen . vkeyLen . vkey)`",
+						"sourceChainId": "The ID of the chain the query reads from."
+					}
+				},
+				"AxiomV2OffchainCall(uint64,address,bytes32,uint256)": {
+					"params": {
+						"caller": "The address of the account that initiated the query fulfillment.",
+						"queryId": "The unique ID identifying the query.",
+						"querySchema": "The schema of the query, defined as `keccak(k . resultLen . vkeyLen . vkey)`",
+						"sourceChainId": "The ID of the chain the query reads from."
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"axiomV2Callback(uint64,address,bytes32,uint256,bytes32[],bytes)": {
+					"params": {
+						"axiomResults": "The results of the query.",
+						"caller": "The address of the account that initiated the query.",
+						"extraData": "Additional data passed to the callback.",
+						"queryId": "The unique ID identifying the query.",
+						"querySchema": "The schema of the query, defined as `keccak(k . resultLen . vkeyLen . vkey)`",
+						"sourceChainId": "The ID of the chain the query reads from."
+					}
+				},
+				"axiomV2OffchainCallback(uint64,address,bytes32,uint256,bytes32[],bytes)": {
+					"params": {
+						"axiomResults": "The results of the query.",
+						"caller": "The address of the account that initiated the query fulfillment.",
+						"extraData": "Additional data passed to the callback.",
+						"queryId": "The unique ID identifying the query.",
+						"querySchema": "The schema of the query, defined as `keccak(k . resultLen . vkeyLen . vkey)`",
+						"sourceChainId": "The ID of the chain the query reads from."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"AxiomV2Call(uint64,address,bytes32,uint256)": {
+					"notice": "Emitted when a callback is made from AxiomV2Query via an on-chain query."
+				},
+				"AxiomV2OffchainCall(uint64,address,bytes32,uint256)": {
+					"notice": "Emitted when a callback is made from AxiomV2Query via an off-chain query."
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"axiomV2Callback(uint64,address,bytes32,uint256,bytes32[],bytes)": {
+					"notice": "Callback which is intended to be called upon on-chain query fulfillment by AxiomV2Query"
+				},
+				"axiomV2OffchainCallback(uint64,address,bytes32,uint256,bytes32[],bytes)": {
+					"notice": "Callback which is intended to be called upon off-chain query fulfillment by AxiomV2Query"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Verifier.sol": "Verifier"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Verifier.sol": {
+			"keccak256": "0x93386c9f9a045bc2268965a95a9cb5e7abd41be0731a6e7202c5638963d3de4d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cb98b985f38262374686e44366d301a403eb10d314530d985a487c7eee19d810",
+				"dweb:/ipfs/Qme8YX7u3SAq6i2spakV1i13ToEnsCLm1bzmmdCp8jiZTU"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xee2337af2dc162a973b4be6d3f7c16f06298259e0af48c5470d2839bfa8a22f4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://30c476b4b2f405c1bb3f0bae15b006d129c80f1bfd9d0f2038160a3bb9745009",
+				"dweb:/ipfs/Qmb3VcuDufv6xbHeVgksC4tHpc5gKYVqBEwjEXW72XzSvN"
+			]
+		},
+		"https://github.com/axiom-crypto/axiom-v2-periphery/blob/main/src/client/AxiomV2Client.sol": {
+			"keccak256": "0xe0d38ea52513a27f955e0426af6047e5d17ceb56a5be38c016d0d8374773d807",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cfd476ffe00b253d46150fbe6c877a1b855187af5782addd64506943c11bad07",
+				"dweb:/ipfs/QmSv2z73vXiqrHfPatWeAvPqQJJpkTg5762Ztj3BsD1YpL"
+			]
+		},
+		"https://github.com/axiom-crypto/axiom-v2-periphery/blob/main/src/interfaces/client/IAxiomV2Client.sol": {
+			"keccak256": "0x09f2388811a30b5487d163351949604846234abd81378f082afad9cae6b737bf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e925f12ef3c511d98c5799d0d857ce2c873e806399050b0a59d3eb2dc75686a7",
+				"dweb:/ipfs/QmNwyg7Wx9vdMv8A5GZSPouLP4RKnmGHSCPo2Vgj2GaHBw"
+			]
+		}
+	},
+	"version": 1
+}
